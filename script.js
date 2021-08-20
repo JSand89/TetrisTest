@@ -64,23 +64,23 @@ function obtenerPieza(N){
 
 function jugar(){
     console.log("jugar")
-    if(moverAbajo){//call function
-        timerID=setTimeout("jugar()",velocidad);
+    if(moverAbajo){//check status function
+        timerID=setTimeout("jugar()",velocidad);// set time function 
         return;
     } else{
-        redibujarMatrix();
-        removerLineas();
-        if(lineaLimite>0&&obtenerPieza()){
+        redibujarMatrix();// call function
+        removerLineas();//call function
+        if(lineaLimite>0&&obtenerPieza()){//check status
             timerID=setTimeout("jugar()",velocidad);
             return;
         }else{
             activeL_=0; activeU_=0;
             activeR_=0; activeD_=0;
-            if(confirm("Fin del juego\n\n Volver a intentarlo?")){
+            if(confirm("Fin del juego\n\n Volver a intentarlo?")){//lose a game retry o game over
                 inicio();
             }else{
                 if(finJuego){
-                    self.close();
+                    self.close();//end game
                 }
             }
         }
@@ -100,3 +100,4 @@ function moverAbajo(){
     }
     return 0;
 }
+//end part 7
